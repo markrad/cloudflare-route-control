@@ -1,0 +1,21 @@
+template:
+  - sensor:
+    - name: Cloudflare Managed Hosts
+      unique_id: cloudflare_managed_hosts
+      state: "active"
+      attributes:
+        categories: >
+          {{ {
+            "Section 1": {
+              "site1.example.com": {
+                "entity_id": "input_boolean.site1_route",
+                "service": "http://yourservice:80"
+              }
+            },
+            "Section 2": {
+              "site2.example.com": {
+                "entity_id": "input_boolean.site2_route",
+                "service": "http://yourservice:80"
+              }
+            }
+          } | to_json }}

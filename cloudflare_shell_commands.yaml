@@ -1,0 +1,2 @@
+modify_route: /bin/bash /config/cloudflare_routing {{ state }} {{ host }} {{ service }}
+all_hosts_status: /bin/bash /config/cloudflare_routing status-all
