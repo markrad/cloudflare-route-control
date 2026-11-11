@@ -8,7 +8,7 @@
     "name": "Cloudflare Route Control",
 	"categories": [
 		"computers_network.cloud_developer_tools",
-	],
+	]
     "requirements": [],
     "version": "0.1.0"
 }
