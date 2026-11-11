@@ -1,5 +1,0 @@
-# Rename this to .cf-env and fill out the required fields below
-
-ACCOUNT_ID=<Cloudflare Account Id>
-TUNNEL_ID=<Cloudflare Tunnel Id>
-CF_API_TOKEN=<Cloudflare API Token>

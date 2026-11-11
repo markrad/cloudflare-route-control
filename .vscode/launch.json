@@ -11,6 +11,14 @@
             "name": "Bash-Debug (simplest configuration)",
             "program": "cloudflare_routing",
             "args": [ "status", "bob" ]
+        },
+        {
+            "type": "debugpy",
+            "request": "launch",
+            "name": "Debug HACS integration (harness)",
+            "program": "${workspaceFolder}/tests/debug_harness.py",
+            "console": "integratedTerminal",
+            "justMyCode": true
         }
     ]
 }

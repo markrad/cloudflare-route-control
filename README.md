@@ -81,3 +81,46 @@ The remaining components enable the routes to be enabled or disabled from a page
     3. Click the + Add resource button. In the dialog set the radio button to JavaScript module and the URL to ```/local/cloudflare-hosts-card/cloudflare-hosts-card.js```. This card can now be added to a Lovelace dashboard.
 
 6) ```cloudflare_script.yaml``` This is a home assistant script that actually calls the shell script. It will need to be added to the scripts in home assistant's config directory.
+
+## HACS installation
+
+The `custom_components/cloudflare_route_control/` directory in this
+repository is a Home Assistant custom integration that replaces the shell
+script setup above (items 2–6). It is installable through HACS as a
+custom repository; see `hacs.json` and `info.md`.
+
+To install it that way, add the repository URL in HACS under
+Integrations -> Custom repositories, with the category set to
+Integration.
+
+### Releasing a new version
+
+1. Bump `version` in `custom_components/cloudflare_route_control/manifest.json`.
+2. Commit and push, then create a full GitHub release with a tag such as
+   `v0.1.0` (the tag without the leading `v` must match the manifest
+   version). A tag on its own is not enough; HACS reads the version from
+   the release. Once a release exists, HACS offers it as an update to
+   anyone who installed the integration.
+
+How it works:
+
+* The config flow collects the account ID, tunnel ID, and API token (the
+  `.cf-env` values) and validates them against the Cloudflare API.
+* A coordinator polls the tunnel configuration (every 30 seconds by
+  default, configurable in the integration options) and holds the set of
+  hostnames that currently have an ingress rule.
+* Each managed host is a switch. Turning it on inserts an ingress rule
+  just before the final catch-all rule, exactly as the shell script did;
+  turning it off removes the rule. The whole configuration is then put
+  back, and the coordinator refreshes so the switch updates at once.
+* Hosts are managed in the integration's **Configure** options, where
+  each host is added with the service it points to when enabled, for
+  example `http://nginx:80`. The service has to be stored per host
+  because a disabled route cannot be seen in the tunnel configuration.
+
+`tests/test_api.py` covers the route manipulation and API client logic
+and runs with plain Python, without a Home Assistant installation:
+
+```
+python3 tests/test_api.py
+```
