@@ -2,3 +2,7 @@
 __pycache__/
 *.pyc
 *.pyo
+
+# Spelling
+.vscode/ltex.dictionary.en-US.txt
+.vscode/ltex.hiddenFalsePositives.en-US.txt

@@ -1,1 +1,48 @@
-{"config": {"abort": {"already_configured": "This tunnel is already configured."}, "error": {"cannot_connect": "Could not reach the Cloudflare API. Check the account and tunnel IDs and try again.", "invalid_auth": "The Cloudflare API rejected the credentials. Check the API token and its permissions.", "unknown": "An unexpected error occurred."}, "step": {"user": {"data": {"account_id": "Account ID", "api_token": "API token", "tunnel_id": "Tunnel ID"}, "description": "Enter the Cloudflare account, tunnel, and API token from your .cf-env file. The token needs permission to edit the Cloudflare Tunnel configuration.", "title": "Cloudflare Route Control"}}}, "options": {"error": {"host_exists": "That host is already managed.", "host_incomplete": "Enter both a host and a service to add a host.", "invalid_hostname": "Enter a hostname such as myapp.example.com.", "invalid_service": "Enter a service address such as http://nginx:80."}, "step": {"init": {"data": {"add_hostname": "Add host", "add_service": "Service for the new host", "remove_hosts": "Remove hosts", "scan_interval": "Poll interval (seconds)"}, "data_description": {"add_hostname": "Hostname as in myapp.example.com", "add_service": "Service address, for example http://nginx:80", "remove_hosts": "Tick each host to remove it, then save."}, "description": "Add a host to manage it as a switch, or tick a host below to remove it. The service is the address the route points to when enabled, for example http://nginx:80.\n\nCurrently managed hosts:\n{hosts}", "title": "Cloudflare Route Control options"}}}}
+{
+    "config": {
+        "abort": {
+            "already_configured": "This tunnel is already configured."
+        },
+        "error": {
+            "cannot_connect": "Could not reach the Cloudflare API. Check the account and tunnel IDs and try again.",
+            "invalid_auth": "The Cloudflare API rejected the credentials. Check the API token and its permissions.",
+            "unknown": "An unexpected error occurred."
+        },
+        "step": {
+            "user": {
+                "data": {
+                    "account_id": "Account ID",
+                    "api_token": "API token",
+                    "tunnel_id": "Tunnel ID"
+                },
+                "description": "Enter the Cloudflare account, tunnel, and API token from your .cf-env file. The token needs permission to edit the Cloudflare Tunnel configuration.",
+                "title": "Cloudflare Route Control"
+            }
+        }
+    },
+    "options": {
+        "error": {
+            "host_exists": "That host is already managed.",
+            "host_incomplete": "Enter both a host and a service to add a host.",
+            "invalid_hostname": "Enter a hostname such as myapp.example.com.",
+            "invalid_service": "Enter a service address such as http://nginx:80."
+        },
+        "step": {
+            "init": {
+                "data": {
+                    "add_hostname": "Add host",
+                    "add_service": "Service for the new host",
+                    "remove_hosts": "Remove hosts",
+                    "scan_interval": "Poll interval (seconds)"
+                },
+                "data_description": {
+                    "add_hostname": "Hostname as in myapp.example.com",
+                    "add_service": "Service address, for example http://nginx:80",
+                    "remove_hosts": "Tick each host to remove it, then save."
+                },
+                "description": "Add a host to manage it as a switch, or tick a host below to remove it. The service is the address the route points to when enabled, for example http://nginx:80.\n\nCurrently managed hosts:\n{hosts}",
+                "title": "Cloudflare Route Control options"
+            }
+        }
+    }
+}
