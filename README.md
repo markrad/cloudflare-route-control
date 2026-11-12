@@ -18,7 +18,7 @@ The repository is compatible with HACS custom repository requirements. To add ei
 
 Alternatively, you can click the button below which will prefill the dialog box in step 3.
 
-[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=markrad&repository=cloudflare-route-control)
+[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=markrad&repository=cloudflare-route-control&category=integration)
 
 Continue on from step 4.
 
