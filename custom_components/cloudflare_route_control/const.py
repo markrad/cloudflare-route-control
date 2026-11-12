@@ -11,6 +11,6 @@ CONF_ADD_SERVICE = "add_service"
 CONF_REMOVE_HOSTS = "remove_hosts"
 CONF_SCAN_INTERVAL = "scan_interval"
 
-DEFAULT_SCAN_INTERVAL = 30
+DEFAULT_SCAN_INTERVAL = 60
 
 PLATFORMS = ["switch"]

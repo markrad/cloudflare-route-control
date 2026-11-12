@@ -244,7 +244,7 @@ from cloudflare_route_control.switch import CloudflareRouteSwitch  # noqa: E402
 async def main():
     session = FakeSession(SAMPLE_CONFIG)
     client = CloudflareApiClient(session, "acct", "tunnel", "token")
-    coordinator = CloudflareRouteCoordinator(HomeAssistant(), client, scan_interval=30)
+    coordinator = CloudflareRouteCoordinator(HomeAssistant(), client, scan_interval=60)
     entry = ConfigEntry(
         "test-entry",
         {CONF_TUNNEL_ID: "abcdef1234567890"},
