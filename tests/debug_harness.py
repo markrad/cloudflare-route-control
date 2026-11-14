@@ -60,9 +60,9 @@ class ClientSession:
     """Stub for aiohttp.ClientSession."""
 
 
-aiohttp_stub.ClientError = ClientError
-aiohttp_stub.ClientResponseError = ClientResponseError
-aiohttp_stub.ClientSession = ClientSession
+aiohttp_stub.ClientError = ClientError # type: ignore
+aiohttp_stub.ClientResponseError = ClientResponseError # type: ignore
+aiohttp_stub.ClientSession = ClientSession # type: ignore
 sys.modules["aiohttp"] = aiohttp_stub
 
 # ---------------------------------------------------------------------------
@@ -93,7 +93,7 @@ class DataUpdateCoordinator:
 
     async def async_refresh(self):
         try:
-            self.data = await self.update_method()
+            self.data = await self.update_method() # type: ignore
             self.last_update_success = True
         except Exception as err:
             self.last_update_success = False
@@ -218,7 +218,7 @@ class FakeSession:
             )
         if method == "PUT":
             self.put_bodies.append(json)
-            self.config = json["config"]
+            self.config = json["config"] # type: ignore
             return FakeResponse(200, {"success": True, "result": {}})
         raise AssertionError(f"unexpected method {method}")
 
@@ -233,12 +233,12 @@ SAMPLE_CONFIG = {
 }
 
 # Import the real integration code (stubs above must be registered first).
-from cloudflare_route_control.api import CloudflareApiClient  # noqa: E402
-from cloudflare_route_control.const import CONF_HOSTS, CONF_TUNNEL_ID  # noqa: E402
-from cloudflare_route_control.coordinator import (  # noqa: E402
+from cloudflare_route_control.api import CloudflareApiClient  # type: ignore # noqa: E402
+from cloudflare_route_control.const import CONF_HOSTS, CONF_TUNNEL_ID  # type: ignore # noqa: E402
+from cloudflare_route_control.coordinator import (  # noqa: E402 # type: ignore
     CloudflareRouteCoordinator,
 )
-from cloudflare_route_control.switch import CloudflareRouteSwitch  # noqa: E402
+from cloudflare_route_control.switch import CloudflareRouteSwitch  # type: ignore # noqa: E402
 
 
 async def main():

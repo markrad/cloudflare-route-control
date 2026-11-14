@@ -12,7 +12,7 @@ from __future__ import annotations
 import logging
 from typing import Any
 
-import aiohttp
+import aiohttp # type: ignore
 
 _LOGGER = logging.getLogger(__name__)
 
